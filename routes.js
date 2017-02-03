@@ -11,3 +11,11 @@ router.get('/user', function(req, res){
 router.post('/user', function(req, res){
   api.postUser(req, res);
 });
+
+router.get('/job', function(req, res){
+  api.getJob(req, res);
+});
+
+router.post('/job', function(req, res){
+  api.postJob(req, res);
+});
