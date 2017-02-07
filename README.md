@@ -41,6 +41,8 @@
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- **400** -- Must send email and password
     <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- **404** -- User not found
+    <br />
 **Query**
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`email=testemail8@test.com&password=1234`
@@ -68,8 +70,6 @@
 **Errors**
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- **400** -- Must send job title, company name, and user ID
-    <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- **404** -- User not found
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- **500** -- Internal Error
     <br />
