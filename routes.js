@@ -16,6 +16,10 @@ router.get('/job', function(req, res){
   api.getJob(req, res);
 });
 
+router.get('/jobsforuser', function(req, res){
+  api.getJobsForUser(req, res);
+});
+
 router.post('/job', function(req, res){
   api.postJob(req, res);
 });

@@ -243,12 +243,60 @@ describe('Job', function(){
     });
   });
   
-  after(function(done){
-    User.remove({}, function(){
-      Job.remove({}, function(){
-        done();
+  describe('GET All Jobs', function(){
+    describe('length 1 - Pass', function(){
+      
+      it('Valid job', function(done){
+        chai.request(app)
+          .get('/jobsforuser')
+          .query({
+            userID: userID
+          })
+          .end(function(err, res) {
+            res.should.have.status(200);
+            res.body.should.have.length(1);
+            done();
+          });
+      });
+    });
+    
+    describe('length 2 - Pass', function(){
+      before(function(done) {
+        chai.request(app)
+          .post('/job')
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+          .send({
+            title: 'job-title2',
+            company: 'company-name2',
+            userID: userID
+          })
+          .end(
+            done()
+          )
+      });
+      
+      it('Valid job', function(done){
+        chai.request(app)
+          .get('/jobsforuser')
+          .query({
+            userID: userID
+          })
+          .end(function(err, res) {
+            console.log(res.body);
+            res.should.have.status(200);
+            res.body.should.have.length(2);
+            done();
+          });
       });
     });
   });
+  
+  // after(function(done){
+  //   User.remove({}, function(){
+  //     Job.remove({}, function(){
+  //       done();
+  //     });
+  //   });
+  // });
 });
 

@@ -60,6 +60,21 @@ module.exports = {
     });
   },
   
+  getJobsForUser : (req, res) => {
+    if (req.query.userID == null) {
+      res.status(400).send('Must send user ID');
+      return;
+    }
+    
+    var userID = req.query.userID;
+    
+    Job.find({_creator: userID}, function(err, jobs){
+      if (err || jobs == null) return res.status(404).send('Jobs not found');
+      
+      return res.status(200).send(jobs);
+    });
+  },
+  
   postJob : (req, res) => {
     if (req.body.userID == null || req.body.title == null || req.body.company == null) {
       res.status(400).send('Must send user ID, job title and company name');
@@ -69,6 +84,7 @@ module.exports = {
     
     // populate job object
     var jobJSON = {}
+    jobJSON._creator = req.body.userID;
     jobJSON.title = req.body.title;
     jobJSON.company = req.body.company;
     if (req.body.endDate)

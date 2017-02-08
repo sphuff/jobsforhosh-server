@@ -113,6 +113,35 @@
   "url": "www.outback.com",
   "_id": "5894d08f2141b92d1e3319d6"
 }
-```   
+``` 
+
+***
+**Request**
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`GET /jobsforuser`
+    <br />
+**Errors**
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- **400** -- Must user ID
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- **404** -- Jobs not found
+    <br />
+**Query**
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id=589b3c19a012bb133d1d49e5`
+    <br />
+**Response**
+``` json
+[ { "_id": "589b3c19a012bb133d1d49e6",
+    "_creator": "589b3c19a012bb133d1d49e5",
+    "title": "job-title",
+    "company": "company-name",
+    "__v": 0 },
+  { "_id": "589b3c19a012bb133d1d49e7",
+    "_creator": "589b3c19a012bb133d1d49e5",
+    "title": "job-title2",
+    "company": "company-name2",
+    "__v": 0 } ]
+```  
 
 
